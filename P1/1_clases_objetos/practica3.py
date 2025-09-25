@@ -34,13 +34,29 @@ class Alumnos:
     self.edad=edad
     self.matricula=matricula
 
-  def inscriberse(self):
+  def inscribirse(self):
      pass
-  
 
   def estudiar(self):
     pass
-  
+
+  def getNombre(self):
+    return self.nombre
+
+  def setNombre(self, nombre):
+    self.nombre = nombre
+
+  def getEdad(self):
+    return self.edad
+
+  def setEdad(self, edad):
+    self.edad = edad
+
+  def getMatricula(self):
+    return self.matricula
+
+  def setMatricula(self, matricula):
+    self.matricula = matricula
 
 class Profesor:
   def __init__(self,nombre,experencia,num_profesor):
@@ -50,10 +66,28 @@ class Profesor:
 
   def impartir(self):
     pass
-  
+
   def evaluar(self):
     pass
-  
+
+  # Getters y setters
+  def getNombre(self):
+    return self.nombre
+
+  def setNombre(self, nombre):
+    self.nombre = nombre
+
+  def getExperiencia(self):
+    return self.experncia
+
+  def setExperiencia(self, experiencia):
+    self.experncia = experiencia
+
+  def getNumProfesor(self):
+    return self.num_profesor
+
+  def setNumProfesor(self, num_profesor):
+    self.num_profesor = num_profesor
 
 #Alumno
 alumno1=Alumnos("Gabriel",19,3195719)
