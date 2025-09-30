@@ -13,7 +13,9 @@ print(coche4.marca2)
 
 '''
 
+import os
 
+os.system("cls")
 #coche1.marca="VW"
 #coche1.color="Blanco"
 #coche1.modelo="2022"
@@ -22,11 +24,30 @@ print(coche4.marca2)
 #coche1.plazas=5
 
 
-num_coches=int(input("¿Cuantos vehicuos va a comprar? "))
 
-for i in range(0,num_coches):
 
-    print(f"..:::Datos del Vehiculo #{i+1}:::..")
+def autos():
+    
+    print(f"..:::Datos del Vehiculo :::..")
+
+    marca=input("Ingresar la marca del auto: ").upper()
+    color=input("Ingresa el color del auto:   ").upper()
+    modelo=input("Ingresa el modelo: ").upper()
+    velocidad=int(input("Ingresa la velocidad: "))
+    potencia=int(input("Cual es la potencia: "))
+    plazas=int(input("Ingresa el # de plazas"))
+
+    coche1=Coches(marca,color,modelo,velocidad,potencia,plazas)
+
+
+
+    print(f"\n\t Datos del Vehiculo: \n Marca:{coche1.getMarca()} \n color: {coche1.getColor()} \n Modelo: {coche1.getModelo()} \n velocidad: {coche1.getVelocidad()} \n caballaje: {coche1.getCaballaje()} \n plazas: {coche1.getPlaza()} ")
+
+
+
+def autos():
+    
+    print(f"..:::Datos del Vehiculo :::..")
 
     marca=input("Ingresar la marca del auto: ").upper()
     color=input("Ingresa el color del auto:   ").upper()
@@ -42,3 +63,31 @@ for i in range(0,num_coches):
     print(f"\n\t Datos del Vehiculo: \n Marca:{coche1.getMarca()} \n color: {coche1.getColor()} \n Modelo: {coche1.getModelo()} \n velocidad: {coche1.getVelocidad()} \n caballaje: {coche1.getCaballaje()} \n plazas: {coche1.getPlaza()} ")
 
     #print(f"Datos del Vehiculo: \n Marca:{coche2.getMarca()} \n color: {coche2.getColor()} \n Modelo: {coche2.getModelo()} \n velocidad: {coche2.getVelocidad()} \n caballaje: {coche2.getCaballaje()} \n plazas: {coche2.getPlaza()} ")
+
+
+
+
+opcion=1
+while opcion!=4:
+    os.system("cls")
+    opcion=input("\n\t..::Menu principal::.\n\t1.-Autos\n\t2.-Camionetas\n\t3.-Camiones\n\t4.-Salir\n\Elige una opcion").lower().strip()
+    match opcion:
+        case "1":
+            autos()
+
+        case "2":
+            print("Camionetas")
+            input("Oprima tecla para continuar")
+        case "3":
+            print("camiones")
+            input("Oprima tecla para continuar")
+
+        case "4":
+            print("Salir del sistema")
+            input("Oprima cualquier tecla para continuar")    
+
+        case _:
+            input("Opcion invalida...vuelva a interntarlo")
+
+
+
