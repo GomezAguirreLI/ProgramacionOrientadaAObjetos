@@ -45,7 +45,7 @@ def autos():
 
 
 
-def autos():
+def camionetas():
     
     print(f"..:::Datos del Vehiculo :::..")
 
@@ -56,11 +56,44 @@ def autos():
     potencia=int(input("Cual es la potencia: "))
     plazas=int(input("Ingresa el # de plazas"))
 
-    coche1=Coches(marca,color,modelo,velocidad,potencia,plazas)
+    traccion=input("Ingrese el tipo de traccion").upper()
+    cerrada=input("Ingresar SI/NO si es cerrada o no").upper().strip()
+
+    if cerrada=="SI":
+        cerrada=True
+
+    else:
+        cerrada=False   
+
+    coche1=Camionetas(marca,color,modelo,velocidad,potencia,plazas,traccion,cerrada)
 
 
 
-    print(f"\n\t Datos del Vehiculo: \n Marca:{coche1.getMarca()} \n color: {coche1.getColor()} \n Modelo: {coche1.getModelo()} \n velocidad: {coche1.getVelocidad()} \n caballaje: {coche1.getCaballaje()} \n plazas: {coche1.getPlaza()} ")
+    print(f"\n\t Datos del Vehiculo: \n Marca:{coche1.getMarca()} \n color: {coche1.getColor()} \n Modelo: {coche1.getModelo()} \n velocidad: {coche1.getVelocidad()} \n caballaje: {coche1.getCaballaje()} \n plazas: {coche1.getPlaza()}\n\t  {coche1.traccion}\n\t {coche1.cerrada}  ")
+
+    #print(f"Datos del Vehiculo: \n Marca:{coche2.getMarca()} \n color: {coche2.getColor()} \n Modelo: {coche2.getModelo()} \n velocidad: {coche2.getVelocidad()} \n caballaje: {coche2.getCaballaje()} \n plazas: {coche2.getPlaza()} ")
+
+def camiones():
+    
+    print(f"..:::Datos del Vehiculo :::..")
+
+    marca=input("Ingresar la marca del auto: ").upper()
+    color=input("Ingresa el color del auto:   ").upper()
+    modelo=input("Ingresa el modelo: ").upper()
+    velocidad=int(input("Ingresa la velocidad: "))
+    potencia=int(input("Cual es la potencia: "))
+    plazas=int(input("Ingresa el # de plazas"))
+
+    eje=int(input("Ingrese el valor del eje").upper())
+    capacidadCarga=int(input("Ingresar la capacidad de carga"))
+
+    
+
+    coche1=Camiones(marca,color,modelo,velocidad,potencia,plazas,eje,capacidadCarga)
+
+
+
+    print(f"\n\t Datos del Vehiculo: \n Marca:{coche1.getMarca()} \n color: {coche1.getColor()} \n Modelo: {coche1.getModelo()} \n velocidad: {coche1.getVelocidad()} \n caballaje: {coche1.getCaballaje()} \n plazas: {coche1.getPlaza()}\n\t  {coche1.eje}\n\t{coche1.capacidadCarga}")
 
     #print(f"Datos del Vehiculo: \n Marca:{coche2.getMarca()} \n color: {coche2.getColor()} \n Modelo: {coche2.getModelo()} \n velocidad: {coche2.getVelocidad()} \n caballaje: {coche2.getCaballaje()} \n plazas: {coche2.getPlaza()} ")
 
