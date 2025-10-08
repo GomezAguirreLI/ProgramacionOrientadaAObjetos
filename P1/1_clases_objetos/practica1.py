@@ -11,7 +11,7 @@ print(area_rectangulo(5,3))
 
 #Orientada a Objetos
 
-
+ 
 class Rectangulo:
     def __init__(self,base,altura):
         self.base=base
