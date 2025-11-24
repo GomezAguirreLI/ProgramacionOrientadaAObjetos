@@ -1,13 +1,15 @@
 
 from conexionBD import *
 
-class Nota:  
+class Operaciones:
+    
+
     @staticmethod
-    def crear(usuario_id, titulo, descripcion):
+    def insertar(numero1,numero2,signo,resultado):
         try:
           cursor.execute(
-            "insert into notas values(null,%s,%s,%s,NOW())",
-            (usuario_id,titulo,descripcion)
+            "insert into operaciones values(null,NOW(),%s,%s,%s,%s)",
+            (numero1,numero2,signo,resultado)
           )
           conexion.commit()
           return True
@@ -15,22 +17,19 @@ class Nota:
           return False
 
     @staticmethod
-    def mostrar(usuario_id):
+    def consultar():
         try:
-          cursor.execute(
-            "select * from notas where usuario_id=%s",
-            (usuario_id,)
-          )
+          cursor.execute("select * from operaciones")
           return cursor.fetchall()
         except:    
           return []
 
     @staticmethod
-    def actualizar(id, titulo, descripcion):
+    def actualizar(numero1,numero2,signo,resultado,id):
        try:
          cursor.execute(
-            "update notas set titulo=%s,descripcion=%s where id=%s",
-            (titulo,descripcion,id)
+            "update operaciones set fehca=NOW(),numero1=%s,numero2=%s,signo=%s,resultado=%s where id=%s",
+            (numero1,numero2,signo,resultado,id)
          )
          conexion.commit()
          return True
@@ -41,11 +40,13 @@ class Nota:
     def eliminar(id):
         try:
           cursor.execute(
-            "delete from notas where id=%s",
+            "delete from operaciones where id=%s",
             (id,)
           ) 
           conexion.commit() 
-          return True  
+          
+          return True 
         except:    
           return False
-        
+
+    

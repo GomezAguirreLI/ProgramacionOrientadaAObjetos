@@ -5,21 +5,14 @@ import datetime
 
 
 class Usuario:
-    def __init__(self, nombre,apellidos,email,password):
-        self.nombre = nombre
-        self.apellidos=apellidos
-        self.email=email
-        self.contrasena = self.hash_password(password)
-
-    def hash_password(self,contrasena):
-        return hashlib.sha256(contrasena.encode()).hexdigest()
-
-    def registrar(self):
+    @staticmethod
+    def registrar(nombre,apellidos,email,password):
         try:
+            
             fecha=datetime.datetime.now()
             cursor.execute(
                 "insert into usuarios values(null,%s,%s,%s,%s,%s)",
-                (self.nombre,self.apellidos,self.email,self.contrasena,fecha)
+                (nombre,apellidos,email,hashlib.sha256(password.encode()).hexdigest(),fecha)
             )
             conexion.commit()
             return True

@@ -5,8 +5,8 @@ from funciones import *
 
 class App:
     def __init__(self):
-      self.main()
-    
+        self.menu_principal()
+
     def menu_principal(self):
      while True:    
         borrarPantalla()
@@ -26,8 +26,7 @@ class App:
             email=input("\t Ingresa tu email: ")
             password=getpass.getpass("\t Ingresa tu contraseña: ")
             #Agregar codigo
-            obj_usurio=usuario.Usuario(nombre,apellidos,email,password)
-            resultado=obj_usurio.registrar()
+            resultado=usuario.Usuario.registrar(nombre,apellidos,email,password)
             if resultado:
                 print(f"\n\t {nombre} {apellidos}, se registro correctamente, con el email: {email}")
             else:
@@ -53,7 +52,7 @@ class App:
         else:
             print("\n \t \t Opción no válida. Intenta de nuevo.")
             esperarTecla()
-    
+
     def menu_notas(self,usuario_id,nombre,apellidos):
      while True:
         borrarPantalla()
@@ -65,7 +64,7 @@ class App:
                   2.- Mostrar
                   3.- Cambiar
                   4.- Eliminar
-                  5.- Salir 
+                  5.- Regresar 
                   """)
         opcion = input("\t\t Elige una opción: ").upper()
 
@@ -75,8 +74,7 @@ class App:
             titulo=input("\tTitulo: ")
             descripcion=input("\tDescripción: ")
             #Agregar codigo
-            obj_nota=nota.Nota(usuario_id,titulo,descripcion)
-            resultado=obj_nota.crear()
+            resultado=nota.Nota.crear(usuario_id,titulo,descripcion)
             if resultado:
                 print(f"\n \t \t.::La Nota {titulo} se creo Correctamente ::.")
             else:
@@ -125,7 +123,6 @@ class App:
             print("\n \t \t Opción no válida. Intenta de nuevo.")
             esperarTecla()
 
-
 if __name__ == "__main__":
-  App()
+   app=App()
 
